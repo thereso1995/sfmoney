@@ -46,6 +46,11 @@ class Transaction
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $cometat;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $frais;
 
     /**
@@ -54,12 +59,12 @@ class Transaction
     private $type;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
     private $dateenvoi;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime",nullable=true)
      */
     private $dateretrai;
 
@@ -142,6 +147,17 @@ class Transaction
 
         return $this;
     }
+    public function getCometat(): ?string
+    {
+        return $this->cometat;
+    }
+
+    public function setCometat(string $cometat): self
+    {
+        $this->comsys = $cometat;
+
+        return $this;
+    }
 
     public function getFrais(): ?string
     {
@@ -167,24 +183,24 @@ class Transaction
         return $this;
     }
 
-    public function getDateenvoi(): ?string
+    public function getDateenvoi(): ?\DateTimeInterface
     {
         return $this->dateenvoi;
     }
 
-    public function setDateenvoi(string $dateenvoi): self
+    public function setDateenvoi( $dateenvoi): self
     {
         $this->dateenvoi = $dateenvoi;
 
         return $this;
     }
 
-    public function getDateretrai(): ?string
+    public function getDateretrai(): ?\DateTimeInterface
     {
         return $this->dateretrai;
     }
 
-    public function setDateretrai(string $dateretrai): self
+    public function setDateretrai(DateTimeInterface $dateretrai): self
     {
         $this->dateretrai = $dateretrai;
 

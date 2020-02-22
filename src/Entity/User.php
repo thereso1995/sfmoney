@@ -49,7 +49,7 @@ class User implements UserInterface
      */
     private $statut;
     private $profil;
-
+    private $Compte;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="entreprise")
      */
@@ -266,6 +266,26 @@ class User implements UserInterface
                 $transaction->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Compte
+     */ 
+    public function getCompte()
+    {
+        return $this->Compte;
+    }
+
+    /**
+     * Set the value of Compte
+     *
+     * @return  self
+     */ 
+    public function setCompte($Compte)
+    {
+        $this->Compte = $Compte;
 
         return $this;
     }
